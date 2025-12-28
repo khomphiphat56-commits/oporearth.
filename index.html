@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary 💜</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#e6d9ff,#f3eaff,#d9ccff);
+  overflow:hidden;
+}
+
+/* กล่องหลัก */
+.card{
+  background:rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  border-radius:24px;
+  padding:30px 20px;
+  text-align:center;
+  width:90%;
+  max-width:420px;
+  box-shadow:0 20px 40px rgba(150,100,200,.25);
+  animation: fadeUp 1.2s ease;
+}
+
+/* รูปหลัก */
+.main-img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #e0c8ff;
+  box-shadow:0 10px 25px rgba(160,120,200,.35);
+}
+
+/* ข้อความ */
+h1{
+  color:#6a3fb3;
+  margin:18px 0 6px;
+}
+
+p{
+  color:#7a6a9a;
+  font-size:15px;
+}
+
+/* ปุ่ม */
+.btn{
+  margin-top:18px;
+  padding:12px 26px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(135deg,#b88cff,#8f6bff);
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(150,100,200,.4);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* รูปลอย (เล็กลงแล้ว) */
+.float{
+  position:absolute;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  object-fit:cover;
+  opacity:.55;
+  animation: float 8s infinite ease-in-out;
+}
+
+.float:nth-child(1){top:10%; left:8%;}
+.float:nth-child(2){bottom:12%; right:10%; animation-duration:10s;}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-20px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* รองรับ iPad / มือถือ */
+@media (min-width:768px){
+  .main-img{
+    width:190px;
+    height:190px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- รูปลอย -->
+<img src="pic1.jpg" class="float">
+<img src="pic2.jpg" class="float">
+
+<div class="card">
+  <img src="main.jpg" class="main-img">
+  <h1>Happy Anniversary 💜</h1>
+  <p>ขอบคุณที่อยู่ด้วยกันเสมอ</p>
+
+  <button class="btn" onclick="toggleMusic()">🎧 เปิด / ปิด เพลง</button>
+</div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("music");
+let playing = false;
+
+function toggleMusic(){
+  if(!playing){
+    music.play();
+    playing = true;
+  }else{
+    music.pause();
+    playing = false;
+  }
+}
+</script>
+
+</body>
+</html>
